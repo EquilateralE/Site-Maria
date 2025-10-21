@@ -1,8 +1,8 @@
-Hébergeur de Vidéos — PHP / HTML / CSS
+### Hébergeur de Vidéos — PHP / HTML / CSS
 
 Un site d’hébergement et de partage de vidéos permettant de s’inscrire, de se connecter, d’uploader des vidéos, de les visionner, de les liker, et de gérer ses propres publications. Conçu en PHP natif, HTML5 et CSS3, avec stockage des fichiers sur disque et des métadonnées en base de données.
 
-Fonctionnalités
+### Fonctionnalités
 
 Authentification (inscription, connexion, déconnexion)
 
@@ -20,7 +20,8 @@ Gestion des miniatures (générées ou uploadées manuellement)
 
 Section d’accueil et page de gestion administrateur
 
-Architecture du projet
+### Architecture du projet
+```
 .
 ├─ image/                 # Ressources d’interface (logos, icônes, miniatures)
 ├─ uploads/               # Dossier des vidéos uploadées (écriture + lecture)
@@ -35,11 +36,12 @@ Architecture du projet
 ├─ style.css              # Styles globaux du site
 ├─ update.php             # Édition des informations d’une vidéo
 └─ videos.php             # Page d’affichage d’une vidéo avec lecteur
+```
 
 
 Note : L’architecture est simple et modulaire. Chaque page PHP gère une action spécifique, sans framework.
 
-Stack & Prérequis
+### Stack & Prérequis
 
 PHP ≥ 8.1 (extensions : pdo, pdo_mysql, fileinfo)
 
@@ -49,7 +51,8 @@ MySQL/MariaDB pour le stockage des métadonnées des vidéos
 
 Navigateur compatible HTML5 <video>
 
-Schéma SQL minimal
+### Schéma SQL minimal
+```
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(50) UNIQUE NOT NULL,
@@ -80,24 +83,8 @@ CREATE TABLE likes (
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
   FOREIGN KEY (video_id) REFERENCES videos(id) ON DELETE CASCADE
 );
+```
 
-Hébergement local
+### Hébergement local
 
-Le site peut être exécuté en local via XAMPP, WAMP ou PHP intégré :
-
-Cloner ou copier le projet dans le dossier htdocs (XAMPP).
-
-Créer une base de données (ex. video_host) et importer le schéma SQL ci-dessus.
-
-Configurer la connexion dans config.php :
-
-<?php
-$db = new PDO('mysql:host=localhost;dbname=video_host;charset=utf8mb4', 'root', '');
-?>
-
-
-Lancer Apache/MySQL depuis le panneau de XAMPP.
-
-Accéder à :
-
-http://localhost/video_host/
+Le site peut être exécuté en local via XAMPP, WAMP ou PHP intégré.
