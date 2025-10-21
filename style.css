@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('image/bg_site_Maria.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+table { 
+    border-collapse: collapse; 
+    width: 70%; 
+    margin: 40px auto; 
+    background: #fff; 
+}
+th, td { 
+    border: 1px solid #ddd; 
+    padding: 10px; 
+    text-align: center; 
+}
+th { 
+    background: #333; 
+    color: #fff; 
+}
+a, button { 
+    color: #333; 
+    text-decoration: none; 
+    margin: 0 4px; 
+}
+form { 
+    width: 300px; 
+    margin: 30px auto; 
+    background: #fff; 
+    padding: 20px; 
+    border-radius: 6px; 
+}
+input[type="text"], input[type="email"] { 
+    width: 100%; 
+    padding: 8px; 
+    margin: 6px 0 14px 0; 
+}
+input[type="submit"], button { 
+    padding: 8px 16px; 
+    border: none; 
+    background: #333; 
+    color: #fff; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+.videos-list {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+}
+
+.video-card {
+    background: rgba(255,255,255,0.96);
+    border-radius: 24px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+    padding: 20px 0 16px 0; /* pas de padding latéral */
+    width: 440px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 20px;
+}
+
+.video-title {
+    text-align: center;
+    font-size: 1.15em;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 0;
+    color: #222;
+    text-shadow: 0 1px 4px #fff, 0 0 1px #2222;
+}
+
+/* Pour que la vidéo remplisse tout le cadre */
+.video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 0 0 24px 24px; /* arrondi bas */
+    display: flex;
+}
+
+.video-js,
+video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 0 0 24px 24px; /* même arrondi bas que le container */
+    background: #111;
+    box-shadow: none;
+    margin: 0;
+    display: block;
+}
+
+/* Boutons */
+.actions {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.actions a {
+    margin: 0 14px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.15s;
+}
+.actions a:hover {
+    color: #a356e0;
+}
+.logout:hover {
+    color: #a356e0;
+}
+.error-msg {
+    color: #fff;
+    background: #e63946;
+    padding: 10px 18px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 8px #e6394633;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .video-card {
+        width: 98vw;
+        min-width: 0;
+    }
+    .video-js, video, .video-container {
+        max-width: 98vw;
+    }
+}
